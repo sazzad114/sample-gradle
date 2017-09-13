@@ -1,0 +1,7 @@
+# Compiled class file
+.gradle
+.idea
+*.iml
+build
+
+

@@ -1,0 +1,2 @@
+rootProject.name = 'sample-gradle'
+include 'client', 'server', 'util'
