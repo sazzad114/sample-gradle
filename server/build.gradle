@@ -1,20 +1,21 @@
-apply plugin: 'application'
+apply plugin: 'war'
 
-mainClassName = 'com.server.main.ServerMain'
+repositories {
 
-jar {
-
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-
-    manifest {
-        attributes(
-                'Main-Class': 'com.server.main.ServerMain'
-        )
-    }
+    mavenLocal()
+    mavenCentral()
 }
 
 dependencies {
-    compile project(":util")
+
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile "javax.servlet:jstl:1.2"
+
+    compile "org.springframework:spring-core:4.3.11.RELEASE"
+    compile "org.springframework:spring-context:4.3.11.RELEASE"
+    compile "org.springframework:spring-orm:4.3.11.RELEASE"
+    compile "org.springframework:spring-webmvc:4.3.11.RELEASE"
+
+    compile "org.hibernate:hibernate-core:5.2.11.Final"
+    compile "mysql:mysql-connector-java:5.1.39"
 }
